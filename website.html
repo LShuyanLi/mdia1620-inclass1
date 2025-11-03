@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Onclick Demo</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 20px; }
+    #output { margin-top: 12px; padding: 10px; border: 1px solid #ccc; border-radius: 6px; min-height: 2rem; }
+    button { padding: 8px 12px; }
+  </style>
+</head>
+<body>
+  <button onclick="showMessage()">Send</button>
+  <input id="input" type="text" placeholder="what is your message?" />
+
+  <div id="output" aria-live="polite"></div>
+
+  <script>
+    let waterLevel = 10;
+    function showMessage() {
+      const inp = document.getElementById('input');
+      const out = document.getElementById('output');
+      out.textContent = inp.value;
+      if(inp.value === "stats"){
+        RevieWaterLevel(waterLevel);
+      }
+
+    }
+
+    function RevieWaterLevel(level){
+
+    if(level > 5){
+        console.log("you drank enough water!");
+        const out = document.getElementById('output');
+        out.textContent = "you drank enough water!";
+    }
+
+    if(level <= 5){
+        console.log("you need to drink more!");
+        const out = document.getElementById('output');
+        out.textContent = "you need to drink more!";
+    }
+    
+}
+
+    function LoseWater(level){
+
+    // Know what current water level os
+    // subtract it by 2
+    // return it back to which every code is calling the fuction
+    let newWaterLevel = level - 2;
+    return newWaterLevel;
+}
+
+    function DrinkWater(level){
+
+    let newWaterLevel = level + 3;
+    return newWaterLevel;
+
+}
+  </script>
+</body>
+</html>
